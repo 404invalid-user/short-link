@@ -10,13 +10,13 @@ const redisDetails = process.env.REDIS.split(':');
 let redisClient;
 const sequelize = new Sequelize(process.env.DATABASE_URI)
 const schemas = {
-    Domain: require('../schemas/Domain'),
-    DomainAccessUser: require('../schemas/DomainAccessUser'),
-    Link: require('../schemas/Link'),
-    LinkAccessList: require('../schemas/LinkAccessList'),
-    LinkAccessUser: require('../schemas/LinkAccessUser'),
-    LinkClick: require('../schemas/LinkClick'),
-    User: require('../schemas/User'),
+    Domain: require('../schemas/Domain')(sequelize),
+    DomainAccessUser: require('../schemas/DomainAccessUser')(sequelize),
+    Link: require('../schemas/Link')(sequelize),
+    LinkAccessList: require('../schemas/LinkAccessList')(sequelize),
+    LinkAccessUser: require('../schemas/LinkAccessUser')(sequelize),
+    LinkClick: require('../schemas/LinkClick')(sequelize),
+    User: require('../schemas/User')(sequelize),
 };
 
 

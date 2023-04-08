@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="text-center text-muted mt-3">
-                Already have account? <a href="/adminsettings/signin" tabindex="-1">Sign in</a>
+                Already have account? <a href="/adminsettings/login" tabindex="-1">Login</a>
             </div>
         </div>
     </div>
@@ -116,17 +116,17 @@ export default {
         },
         async onSubmit() {
             if (this.form.hcaptchatoken == "") {
-                return newAlert('warn', "verify with hcaptcha", "please click the hcaptcha check box to verify you are a human.");
-                }
+                return this.newAlert('warn', "verify with hcaptcha", "please click the hcaptcha check box to verify you are a human.");
+            }
             try {
                 const loginres = await axios.post('/adminsettings/signup', this.form);
-                if (loginres.data.error !=null) {
+                if (loginres.data.error != null) {
                     return this.newAlert('error', loginres.data.error, loginres.data.message);
                 } else {
-                    return this.newAlert('success', loginres.data.success, loginres.data.message);
-                    setTimeout(()=>{
-                        window.location.href="/adminsettings/login";
-                    },600)
+                    this.newAlert('success', loginres.data.success, loginres.data.message);
+                    setTimeout(() => {
+                        window.location.href = "/adminsettings/login";
+                    }, 600)
                 }
             } catch (err) {
                 console.log(err.stack || err);

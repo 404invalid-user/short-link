@@ -1,7 +1,8 @@
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
 const db = require('../../../database/index');
 const { verify } = require('hcaptcha');
-const logger = require('mcstatusbot-logger')
+const logger = require('mcstatusbot-logger');
+
 module.exports = async function (req, res) {
     const username = req.body.username;
     const password = req.body.password;

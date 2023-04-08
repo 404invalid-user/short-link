@@ -1,4 +1,4 @@
-const db = require('../../../../database/index');
+const db = require('../../../database/index');
 module.exports = async function (req, res) {
     if (req.session.userid == null) {
         return res.status(401).json({});

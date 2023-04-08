@@ -21,12 +21,12 @@ module.exports = (sequelize) => {
         canCreateDomains: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
-            defaultValue: process.env.NEWSIGNUP_ALLOW_ADD_DOMAIN == 'true'?true:false
+            defaultValue: process.env.NEWSIGNUP_ALLOW_ADD_DOMAIN == 'true' ? true : false
         },
         domainLimit: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            defaultValue: parseInt(process.env.DEFAULT_DOMAIN_LIMIT)
+            defaultValue: isNaN(process.env.DEFAULT_DOMAIN_LIMIT) ? 0 : parseInt(process.env.DEFAULT_DOMAIN_LIMIT)
         },
         superUser: {
             type: DataTypes.BOOLEAN,
@@ -36,32 +36,32 @@ module.exports = (sequelize) => {
 
 
 
-        DiscordLinkId:{
+        DiscordLinkId: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: "NONE"
         },
-        DiscordLinkUsername:{
+        DiscordLinkUsername: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: "NONE"
         },
-        DiscordLinkAvatar:{
+        DiscordLinkAvatar: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: "NONE"
         },
-        GithubLinkId:{
+        GithubLinkId: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: "NONE"
         },
-        GithubLinkUsername:{
+        GithubLinkUsername: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: "NONE"
         },
-        GithubLinkAvatar:{
+        GithubLinkAvatar: {
             type: DataTypes.STRING,
             allowNull: false,
             defaultValue: "NONE"
